@@ -1,22 +1,24 @@
-let sum: number = 0;
-let count: number = 0;
-for (let i = 2; count < 30; i++) {
-    let isPrime: boolean = true;
-    if (i == 2) {
-        sum += i;
-        count++;
-        continue;
-    }
-    for (let j = 2; j <= Math.sqrt(i); j++) {
-        if (i % j == 0) {
-            isPrime = false;
-            break;
+function isPrime(number: number): boolean {
+    let isPrime1 = true;
+    if (number < 2) {
+        isPrime1 = false;
+    } else if (number > 2) {
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                isPrime1 = false;
+                break;
+            }
         }
     }
-    if(!isPrime){
-        continue;
-    }
-    sum += i;
-    count++;
+    return isPrime1;
+
 }
-console.log(sum);
+
+let array = [1, 5, 9, 2, 6, 15, 19, 35, 51, 53];
+let sum = 0;
+for (let number of array) {
+    if (isPrime(number)) {
+        sum += number;
+    }
+}
+console.log("Tổng các số nguyên tố trong mảng trên là: " + sum);
