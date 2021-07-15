@@ -1,6 +1,4 @@
-import set = Reflect.set;
-declare let money: number;
-declare const buyACar: (car: any) => Promise<unknown>;
-declare const promise: Promise<void>;
-declare function handleTimeout(timeout: any): Promise<unknown>;
-declare var xxx: Promise<unknown>;
+declare function getFibonacyList(n: number): Array<number>;
+declare function getSum(arr: Array<number>): number;
+declare let arr: number[];
+declare let sum: number;

@@ -1,44 +1,24 @@
-import set = Reflect.set;
+function getFibonacyList(n:number):Array<number> {
+    let arr = new Array(1,1);
+    let index=2;
+    while(index<n){
+        arr.push(arr[index-2]+arr[index-1]);
+        index++;
+    }
 
-let money = 10000;
-const buyACar = (car: any) => {
-    return new Promise(((resolve, reject) => {
-        setTimeout(() => {
-            if (money >= 10000) {
-                resolve("can buy " + car);
-            } else {
-                reject("Do not enough money");
-            }
-        }, 100);
-    }))
+    return arr;
+
 }
 
-money = 8000;
-const promise = buyACar("Vinfast").then(value => {
-    console.log(value);
-}, error => {
-    console.log(error);
-})
-
-function handleTimeout(timeout:any){
-    return new Promise(function(resolve,reject){
-        setTimeout(resolve,timeout);
-    });
+function getSum(arr:Array<number>) :number {
+    let sum = 0;
+    for (const number of arr) {
+        sum+= number;
+    }
+    return sum;
 }
 
-var xxx= handleTimeout(5000);
-xxx.then(function (){
-    console.log("Lập");
-})
-.then(function(){
-    return handleTimeout(3000);
-})
-.then(function(){
-    console.log("Trình");
-})
-.then(function(){
-    return handleTimeout(2000);
-})
-.then(function(){
-    console.log("JaVa");
-});
+let arr= getFibonacyList(10);
+let sum = getSum(arr);
+console.log(arr);
+console.log(sum);
