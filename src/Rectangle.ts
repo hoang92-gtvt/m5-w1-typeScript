@@ -1,6 +1,6 @@
 import {Shap} from "./shap";
 
-// @ts-ignore
+
 export class Rectangle extends Shap implements IArea{
    constructor(x:number, y: number, private _width:number, private _height:number) {
        super(x, y);
